@@ -1,0 +1,57 @@
+﻿@model SignFix.Models.NewSignPlacmentFormViewModel
+@{
+    ViewBag.Title = "NewSignPlacementform";
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<script>
+
+  $(document).ready(function() {
+      $("#EnterDate").datepicker();
+  });
+</script>
+
+
+<p>
+    <br>
+    <div align="center">
+        <h2>New Sign Placement Listing</h2>
+    </div>
+    </br>
+</p>
+
+
+
+@using (Html.BeginForm("NewSignPlacementform", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+
+        <p>
+            @Html.LabelFor(m => m.number_signs_new, new { @class = "col-md-2 control-label" })
+            @Html.TextBoxFor(m => m.number_signs_new, new { @class = "form-control" })
+        </p>
+
+        <p>
+            @Html.LabelFor(m => m.Zipcode, new { @class = "col-md-2 control-label" })
+            @Html.TextBoxFor(m => m.Zipcode, new { @class = "form-control" })
+        </p>
+
+        <p>
+            @Html.LabelFor(m => m.Placementdate, new { @class = "col-md-2 control-label" })
+            @Html.EditorFor(m => m.Placementdate, new { htmlAttributes = new { @class = "form-control" } })
+            
+        </p>
+  
+        <p>
+            @Html.LabelFor(m => m.Notes, new { @class = "col-md-2 control-label" })
+            @Html.TextAreaFor(m => m.Notes, new { @class = "form-control" })
+        </p>
+        <p>
+            <input type="submit" value="Continue" /> @*goes to next page newsignpacement*@
+            <input type="submit" value="Skip" />
+        </p>
+    </div>
+
+}

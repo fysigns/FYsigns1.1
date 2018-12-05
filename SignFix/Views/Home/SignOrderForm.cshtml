@@ -1,0 +1,61 @@
+﻿@model SignFix.Models.SignOrderFormViewModel.CreateSignOrderformViewModel
+    @{
+    ViewBag.Title = "SignOrderForm";
+   }
+
+<p>
+<br>
+    <div align="center">
+        <h2>Sign Order Form</h2>
+    </div>
+</br>
+</p>
+
+
+
+    @using (Html.BeginForm("SignOrderForm", "Home", FormMethod.Post))
+    {
+        <div class="form-group">
+
+<p>
+            @Html.LabelFor(m => m.number_signs, new { @class = "col-md-2 control-label" })
+            @Html.TextBoxFor(m => m.number_signs, new { @class = "form-control" })
+        </p>
+
+            <p>
+                @Html.LabelFor(m => m.number_stakes, new { @class = "col-md-2 control-label" })
+                @Html.TextBoxFor(m => m.number_stakes, new { @class = "form-control" })
+            </p>
+       
+        <p>
+            @Html.LabelFor(m => m.Sides, new { @class = "col-md-2 control-label" })
+            <select asp-for="m.Sides">
+                <option value="">Choose an option</option>
+                <option value="true">Single-Sided</option>
+                <option value="false">Double-Sided</option>
+            </select>
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Size, new { @class = "col-md-2 control-label" })
+            <select asp-for="m.Size">
+                <option value="">Choose an option</option>
+                <option value="true">12X18</option>
+                <option value="false">18X24</option>
+            </select>
+            <a href="https://www.w3schools.com/html/">Example Picture</a>
+        </p>     
+        <p>
+            @Html.Label("ArtWork", new { @class = "col-md-2 control-label" })
+            @Html.TextBox("Upload", "", new { type = "file" })
+        </p>
+
+            <p>
+                @Html.LabelFor(m => m.Category, new { @class = "col-md-2 control-label" })
+                @Html.TextAreaFor(m => m.Category, new { @class = "form-control" })
+            </p>
+        <p>
+            <input type="submit" value="Continue" /> @*goes to next page newsignpacement*@
+        </p>
+</div>
+
+}
